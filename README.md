@@ -20,7 +20,6 @@ Install any version of Logitech Media Server on RaspberryPi, without monitor and
     }
     ```
 
-
 ## Log in with SSH
 1. If needed, find IP_ADDRESS of RaspberryPi with "Advance IP scanner"
 1. Log in in SSH, using Putty or MobaXterm. User "pi", password "raspberry". Change it if needed
@@ -49,20 +48,34 @@ Taken from https://www.hagensieker.com/wordpress/2018/06/12/302/
 1. Connect to http://IP_ADDRESS:9000/ to configure the server
 1. Set Interface Title format: "TRACKNUM. TITLE (TRACKSTATRATINGDYNAMIC)"
 1. Leave only these plugins:
-    * AudioScrobbler
+    * AudioScrobbler - to save played songs to last.fm
     * DontStopTheMusic
     * Programma di gestione di servizi mysqueezebox.com
     * InternetRadio
-    * Rescan
+    * Rescan - Rescan library at 3 am
 1. Install these plugins:
-    * Trackstat
-    * Material Skin
-    * Music and Artist Information
-    * Lastmix
-1. Configure Audioscrobbler plugin
-1. Configure Rescan at 3 am
+    * Trackstat - it will use automatically any backup in the playlists folder
+    * Material Skin - accessible on http://IP_ADDRESS:9000/material
+    * Music and Artist Information - to get artist photo
+    * Lastmix - to continue playing songs
+
 
 ## On every client
 1. Use Smart Gain
 1. Use LastMix Don't stop the music
 1. Use Audioscrobbler
+
+## Install Samba
+Taken from https://www.raspberrypi.org/documentation/remote-access/samba.md and https://pimylifeup.com/raspberry-pi-samba/
+1. `sudo apt install samba samba-common-bin`
+1. Do not use WINS when asked
+1. Add these lines at the end of file `sudo nano /etc/samba/smb.conf`
+    ```
+    [DISK_NAME]
+        path = /mnt/DISK_NAME
+        read only = no
+        public = no
+        writable = yes
+    ```
+1. Set a password `sudo smbpasswd -a pi`
+1. Connect from windows to "\\\IP_ADDRESS\DISK_NAME", with user pi and password
