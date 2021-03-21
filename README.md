@@ -94,3 +94,11 @@ sdram_schmoo=0x02000020
 over_voltage=6
 sdram_over_voltage=2
  ```
+ 
+## Remove swap file
+To reduce sd-card wear, disable the default 100MB swap file
+```
+sudo dphys-swapfile swapoff && \
+sudo dphys-swapfile uninstall && \
+sudo systemctl disable dphys-swapfile
+```
