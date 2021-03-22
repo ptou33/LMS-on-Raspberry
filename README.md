@@ -65,8 +65,8 @@ Taken from https://www.raspberrypi.org/documentation/configuration/external-stor
 Taken from https://www.hagensieker.com/wordpress/2018/06/12/302/
 1. `sudo apt install libio-socket-ssl-perl libnet-libidn-perl libnet-ssleay-perl perl-openssl-defaults`
 1. Find a LMS version you like from https://downloads.slimdevices.com/nightly/?ver=7.9
-1. `wget https://downloads.slimdevices.com/nightly/7.9/sc/776e969ec5f8101f20f7687f525d42674ea52900/logitechmediaserver_7.9.4~1603273368_arm.deb`
-1. `sudo dpkg -i logitechmediaserver_7.9.4~1603273368_arm.deb`
+1. Download "arm.deb" package: `wget https://downloads.slimdevices.com/nightly/7.9/sc/776e969ec5f8101f20f7687f525d42674ea52900/logitechmediaserver_7.9.4~1603273368_arm.deb`
+1. Install it: `sudo dpkg -i logitechmediaserver_7.9.4~1603273368_arm.deb`
 
 ## Configure LMS
 1. Connect to http://IP_ADDRESS:9000/ to configure the server
