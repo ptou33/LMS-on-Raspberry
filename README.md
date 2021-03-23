@@ -129,7 +129,7 @@ Taken from https://www.hagensieker.com/wordpress/2018/06/12/302/
 
 
 # Install Squeezelite
-1. Download: `wget https://sourceforge.net/projects/lmsclients/files/squeezelite/linux/squeezelite-1.9.9.1372-armhf.tar.gz/download`
+1. Download: `wget https://sourceforge.net/projects/lmsclients/files/squeezelite/linux/squeezelite-1.9.9.1372-armhf.tar.gz`
 1. Unzip and move executable `tar -xzf squeezelite-1.8.7.1053-armv6hf.tar.gz && sudo mv squeezelite /usr/bin/squeezelite`
 
 1. To start automatically squeezelite: `sudo nano /etc/systemd/system/squeezelite.service`
