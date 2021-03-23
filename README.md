@@ -59,6 +59,7 @@ Taken from https://www.raspberrypi.org/documentation/configuration/external-stor
     UUID=my_disk_uuid /mnt/DISK_NAME ntfs defaults,auto,users,rw,nofail,umask=000,x-systemd.device-timeout=30 0 0
     ```
 1. Reload fstab without rebooting `sudo mount -a`
+
 ## Install Samba
 Taken from https://www.raspberrypi.org/documentation/remote-access/samba.md and https://pimylifeup.com/raspberry-pi-samba/
 1. `sudo apt install samba samba-common-bin`
@@ -88,6 +89,15 @@ sdram_schmoo=0x02000020
 over_voltage=6
 sdram_over_voltage=2
  ```
+ 
+## Remove swap file
+To reduce sd-card wear, disable the default 100MB swap file
+```
+sudo dphys-swapfile swapoff && \
+sudo dphys-swapfile uninstall && \
+sudo systemctl disable dphys-swapfile
+```
+
 
 # Install LMS
 Taken from https://www.hagensieker.com/wordpress/2018/06/12/302/
@@ -117,15 +127,6 @@ Taken from https://www.hagensieker.com/wordpress/2018/06/12/302/
 1. Use LastMix Don't stop the music
 1. Use Audioscrobbler
 
-
- 
-## Remove swap file
-To reduce sd-card wear, disable the default 100MB swap file
-```
-sudo dphys-swapfile swapoff && \
-sudo dphys-swapfile uninstall && \
-sudo systemctl disable dphys-swapfile
-```
 
 # Install Squeezelite
 `wget https://sourceforge.net/projects/lmsclients/files/squeezelite/linux/squeezelite-1.9.9.1372-armhf.tar.gz/download`
