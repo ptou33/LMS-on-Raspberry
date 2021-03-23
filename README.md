@@ -79,16 +79,16 @@ Taken from https://www.raspberrypi.org/documentation/remote-access/samba.md and 
 ## Overclock Raspberry 3 A+
 2. to monitor frequency and temperature: `watch -n 0 "vcgencmd measure_clock arm && vcgencmd  measure_temp"`
 3. to overclock add these line to `sudo nano /boot/config.txt`
- ```
-temp_soft_limit=70
-arm_freq=1550
-gpu_freq=500
-core_freq=500
-sdram_freq=500
-sdram_schmoo=0x02000020
-over_voltage=6
-sdram_over_voltage=2
- ```
+     ```
+    temp_soft_limit=70
+    arm_freq=1550
+    gpu_freq=500
+    core_freq=500
+    sdram_freq=500
+    sdram_schmoo=0x02000020
+    over_voltage=6
+    sdram_over_voltage=2
+     ```
  
 ## Remove swap file
 To reduce sd-card wear, disable the default 100MB swap file
