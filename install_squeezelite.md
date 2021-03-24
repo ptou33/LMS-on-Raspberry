@@ -24,6 +24,7 @@
         exit $?
     fi
     ```
+1. Make it executable `chmod +x start_squeezelite.sh`
 1. Use `alsamixer` to set the volume for the device (it starts very low)
 
 ## Automatically start squeezelite
