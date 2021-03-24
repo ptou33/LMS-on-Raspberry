@@ -23,11 +23,10 @@
     ```
     [Unit]
     Description=Squeezelite
-
     After=network.target
 
     [Service]
-    ExecStart=/usr/bin/squeezelite -o hw:CARD=Headphones,DEV=0 -n Raspberry
+    ExecStart=/home/pi/start_squeezelite.sh
 
     [Install]
     WantedBy=multi-user.target
