@@ -9,14 +9,17 @@
 
     if squeezelite -l | grep -q "LS50"; then
         echo "squeezelite using LS50"
+        amixer -c 1 sset PCM 100%
         squeezelite -o hw:CARD=Speaker,DEV=0 -n Raspberry
         exit $?
     elif squeezelite -l | grep -q "SA9023"; then
         echo "squeezelite using Hifimediy Sabre SA9023"
+        amixer -c 1 sset PCM 100%
         squeezelite -o hw:CARD=Audio,DEV=0 -n Raspberry
         exit $?
     else
         echo "squeezelite using Raspberry internal headphone"
+        amixer -c 0 sset Headphone 100%
         squeezelite -o hw:CARD=Headphones,DEV=0 -n Raspberry
         exit $?
     fi
