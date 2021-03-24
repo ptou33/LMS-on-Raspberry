@@ -6,9 +6,14 @@
 1. Create a script to start squeezelite according to desired interface `nano start_squeezelite.sh`
     ```
     #!/bin/bash
+
     if squeezelite -l | grep -q "LS50"; then
         echo "squeezelite using LS50"
         squeezelite -o hw:CARD=Speaker,DEV=0 -n Raspberry
+        exit $?
+    elif squeezelite -l | grep -q "SA9023"; then
+        echo "squeezelite using Hifimediy Sabre SA9023"
+        squeezelite -o hw:CARD=Audio,DEV=0 -n Raspberry
         exit $?
     else
         echo "squeezelite using Raspberry internal headphone"
