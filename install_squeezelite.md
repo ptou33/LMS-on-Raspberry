@@ -28,7 +28,7 @@
 1. Use `alsamixer` to set the volume for the device (it starts very low)
 
 ## Automatically start squeezelite
-3. To start automatically squeezelite: `sudo nano /etc/systemd/system/squeezelite.service`
+1. To start automatically squeezelite: `sudo nano /etc/systemd/system/squeezelite.service`
     ```
     [Unit]
     Description=Squeezelite
@@ -41,5 +41,6 @@
     WantedBy=multi-user.target
     ```
 1. Enable the service `sudo systemctl enable squeezelite.service`
+1. In alternative, add the the scritp at the end of file before the exit, using `sudo nano /etc/rc.local`
 
 
