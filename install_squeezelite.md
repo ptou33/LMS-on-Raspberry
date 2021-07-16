@@ -35,6 +35,9 @@
     After=network.target
 
     [Service]
+    User=pi
+    Group=pi
+    WorkingDirectory=/home/pi
     ExecStart=/home/pi/start_squeezelite.sh
 
     [Install]
