@@ -10,3 +10,19 @@ services:
             - "9090:9090"
             - "3483:3483/udp"
             - "3483:3483/tcp"
+
+
+services:
+    lms:
+        image: lmscommunity/lyrionmusicserver
+        volumes:
+            - /mnt/fritz.nas/5TB/config:/config:rw
+            - /mnt/fritz.nas/5TB/music:/music:ro
+            - /mnt/fritz.nas/5TB/playlist:/playlist:rw
+        ports:
+            - "9000:9000"
+            - "9090:9090"
+            - "3483:3483/udp"
+            - "3483:3483/tcp"
+
+
