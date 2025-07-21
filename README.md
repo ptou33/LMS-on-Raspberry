@@ -3,7 +3,7 @@ Install any version of Logitech Media Server on RaspberryPi, without monitor and
 (Raspberry 3 A+)
 
 ## Links
-[Raspbian from Ubuntu](http://./raspbian_from_ubuntu.md)
+[Raspbian from Ubuntu](raspbian_from_ubuntu.md)
 
 
 ## Install Raspbian
