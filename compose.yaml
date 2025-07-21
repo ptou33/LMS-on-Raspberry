@@ -1,1 +1,12 @@
-
+services:
+    lms:
+        image: lmscommunity/lyrionmusicserver
+        volumes:
+            - /share/Container/app-data/lms-config/:/config:rw
+            - /share/Multimedia/Music/:/mnt/fritz.nas/5TB/music:ro
+            - /share/Multimedia/Playlists/LMS/:/mnt/fritz.nas/5TB/playlist:rw
+        ports:
+            - "9000:9000"
+            - "9090:9090"
+            - "3483:3483/udp"
+            - "3483:3483/tcp"
