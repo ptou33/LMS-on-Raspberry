@@ -17,3 +17,11 @@ configure
 - user
 - ssh
 - wifi
+
+
+    sudo apt update
+    sudo apt install cifs-utils
+
+
+sudo mkdir /mnt/fritz.nas/
+sudo mount -t cifs //192.168.178.1/fritz.nas /mnt/fritz.nas -o username=___,password=___,uid=pi,gid=pi
