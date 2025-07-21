@@ -26,7 +26,9 @@ To access network disk from Fritzbox:
     sudo mount -t cifs //192.168.178.1/fritz.nas /mnt/fritz.nas -o username=___,password=___,uid=pi,gid=pi
 
 Docker compose for Lyrion (LMS)
+
 [compose.yaml](compose.yaml)
+
 https://hub.docker.com/r/lmscommunity/lyrionmusicserver
 https://lyrion.org/getting-started/beginners-guide-qnap-docker/#assumptions
 
