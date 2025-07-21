@@ -40,3 +40,15 @@ https://lyrion.org/getting-started/beginners-guide-qnap-docker/#assumptions
                 - "9090:9090"
                 - "3483:3483/udp"
                 - "3483:3483/tcp"
+
+Start Docker compose
+
+    docker compose up -d
+
+To stop
+
+    docker compose down
+
+To update the image
+
+    docker compose pull
