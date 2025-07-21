@@ -2,6 +2,10 @@
 Install any version of Logitech Media Server on RaspberryPi, without monitor and without ethernet 
 (Raspberry 3 A+)
 
+## Links
+[Raspbian from Ubuntu](http://./raspbian_from_ubuntu.md)
+
+
 ## Install Raspbian
 1. Download Raspbian lite from https://www.raspberrypi.org/software/operating-systems/
 1. Write to SD card (e.g. with Balena Etcher https://www.balena.io/etcher/)
