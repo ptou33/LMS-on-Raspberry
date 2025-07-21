@@ -6,4 +6,4 @@ Create md5 of password to be put in compose.yaml
 
   echo -n 'your_password' | md5sum
 
-(compose.yaml)
+[compose.yaml](compose.yaml)
