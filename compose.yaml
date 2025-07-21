@@ -19,3 +19,22 @@ services:
       - HTTP_PORT=9000
     restart: always
 
+  navidrome:
+    image: deluan/navidrome:latest
+    user: 1000:1000 # should be owner of volumes
+    ports:
+      - "4533:4533"
+    restart: unless-stopped
+    environment:
+      # Optional: put your config options customization here. Examples:
+      #ND_LOGLEVEL: debug
+      ND_LASTFM_ENABLED: "true"
+      ND_LASTFM_USERNAME: "ptou"
+      ND_LASTFM_PASSWORD: "MD5_OF_PASSWORD"
+      ND_LASTFM_APIKEY: "f55af6e2865d89139edea687c4d0ffd1"
+      ND_LASTFM_SECRET: "ee1886a700f421319692eb7f5f52c17f"
+    volumes:
+      - /home/pi/navidrome:/data
+      - /home/pi/music:/music:ro
+
+
