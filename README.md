@@ -64,6 +64,14 @@ Taken from https://www.raspberrypi.org/documentation/configuration/external-stor
     ```
 1. Reload fstab without rebooting `sudo mount -a`
 
+## Mount Fritzbox USB disk network share
+
+    //192.168.178.1/fritz.nas /mnt/fritz.nas cifs username=fritznas,password=pietro33,uid=1000,gid=1000,file_mode=0775,dir_mode=0775,vers=3.1.1,x-systemd.automount,_netdev,actimeo=30,cache=none,noserverino 0 0
+
+    //192.168.178.1/fritz.nas on /mnt/fritz.nas type cifs (rw,relatime,vers=3.1.1,cache=none,upcall_target=app,username=fritznas,uid=1000,forceuid,gid=1000,forcegid,addr=192.168.178.1,file_mode=0775,dir_mode=0775,soft,nounix,mapposix,reparse=nfs,nativesocket,symlink=native,rsize=65536,wsize=65536,bsize=1048576,retrans=1,echo_interval=60,actimeo=30,closetimeo=1,x-systemd.automount,_netdev)
+
+    //192.168.178.1/fritz.nas /mnt/fritz.nas cifs username=fritznas,password=pietro33,uid=1000,gid=1000,file_mode=0775,dir_mode=0775,vers=3.1.1,x-systemd.automount,_netdev,actimeo=30,cache=none,noserverino,soft
+
 ## Install Samba
 Taken from https://www.raspberrypi.org/documentation/remote-access/samba.md and https://pimylifeup.com/raspberry-pi-samba/
 1. `sudo apt install samba samba-common-bin`
