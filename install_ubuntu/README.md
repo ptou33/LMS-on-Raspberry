@@ -82,3 +82,23 @@ start docker compose, force recreate resets mapped
 
     docker compose up -d
     docker compose up -d --force-recreate
+
+# Firefox does not forward into remote ssh X11 server
+
+    sudo snap remove firefox
+    sudo add-apt-repository ppa:mozillateam/ppa
+    sudo apt update
+
+disable snap for firefox
+        
+    echo '
+    Package: *
+    Pin: origin ppa.launchpad.net
+    Pin-Priority: 501
+    ' | sudo tee /etc/apt/preferences.d/mozilla-firefox
+
+install firefox
+
+    sudo apt install firefox
+
+now it should work remotely
