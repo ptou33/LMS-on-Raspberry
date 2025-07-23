@@ -68,3 +68,6 @@ test it with
 
 now you can proceed with loading compose.yaml for services like navidrome, lms, jellyfin
 
+    nano compose.yaml
+
+copy the contents of [jellyfin compose.yaml](compose.yaml)
