@@ -1,5 +1,6 @@
 services:
   jellyfin:
+    restart: 'unless-stopped'
     image: jellyfin/jellyfin
     #image: lscr.io/linuxserver/jellyfin:latest
 
@@ -13,20 +14,10 @@ services:
     volumes:
       - /home/pietro/jellyfin/config:/config
       - /home/pietro/jellyfin/cache:/cache
-      - type: bind
-        source: /home/pietro/Media
-        target: /media
-      #- type: bind
-      #  source: /home/pietro/Music
-      #  target: /media
-      #  read_only: true
+      - /home/pietro/Media:/media:ro
       # Optional - extra fonts to be used during transcoding with subtitle burn-in
-      #- type: bind
-      #  source: /path/to/fonts
-      #  target: /usr/local/share/fonts/custom
-      #  read_only: true
+      #- /path/to/fonts:/usr/local/share/fonts/custom:ro
 
-    restart: 'unless-stopped'
     # Optional - alternative address used for autodiscovery
     #environment:
     #  - JELLYFIN_PublishedServerUrl=http://example.com
