@@ -26,16 +26,17 @@ Exit the file and restart logind
 
 
 
-## Enable smbd
+## smbd Media folder share with smbd
+Let's say we wanto do share Media folder in pietro home
 
-    sudo apt install samba samba-common-bin
+    mkdir Media
+
+Install and configure samba
     
+    sudo apt install samba samba-common-bin
     sudo nano /etc/samba/smb.conf
 
-
-
-At the end of the file, add:
-**smb.conf**
+add this text the end of the **smb.conf**
 
     [DellMedia]
         path = /home/pietro/Media
@@ -67,7 +68,17 @@ test it with
     docker run hello-world
 
 now you can proceed with loading compose.yaml for services like navidrome, lms, jellyfin
+copy the contents of [jellyfin compose.yaml](compose.yaml) into:
 
     nano compose.yaml
 
-copy the contents of [jellyfin compose.yaml](compose.yaml)
+precreate the shared folders before starting the container
+    
+    mkdir jellyfin
+    mkdir jellyfin/config
+    mkdir jellyfin/cache
+
+start docker compose, force recreate resets mapped
+
+    docker compose up -d
+    docker compose up -d --force-recreate
