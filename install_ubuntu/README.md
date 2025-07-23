@@ -29,6 +29,7 @@ Exit the file and restart logind
 ## Enable smbd
 
     sudo apt install samba samba-common-bin
+    
     sudo nano /etc/samba/smb.conf
 
 
@@ -52,5 +53,18 @@ From now the share is visible on windows
 from convenience script
 
     sudo apt install curl
+    
     curl -fsSL https://get.docker.com -o get-docker.sh
     sudo sh get-docker.sh
+
+enable docker to be run without sudo
+
+    sudo usermod -aG docker $USER
+    newgrp docker
+
+test it with
+
+    docker run hello-world
+
+now you can proceed with loading compose.yaml for services like navidrome, lms, jellyfin
+
