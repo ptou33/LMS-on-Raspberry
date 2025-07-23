@@ -1,0 +1,14 @@
+services:
+  webcam-app:
+    build: .
+    volumes:
+      - ./output:/app/output
+      #- ${XAUTHORITY}:${XAUTHORITY}
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    environment:
+      - DISPLAY=${DISPLAY}
+      #- XAUTHORITY=${XAUTHORITY}
+    devices:
+      - /dev/video0:/dev/video0
+    stdin_open: true
+    tty: true
