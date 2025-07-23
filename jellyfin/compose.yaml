@@ -1,14 +1,37 @@
 services:
-  webcam-app:
-    build: .
+  jellyfin:
+    image: jellyfin/jellyfin
+    #image: lscr.io/linuxserver/jellyfin:latest
+
+    container_name: jellyfin
+    user: 1000:1000
+
+    network_mode: 'host'
+    #ports:
+    #  - 8096:8096
+
     volumes:
-      - ./output:/app/output
-      #- ${XAUTHORITY}:${XAUTHORITY}
-      - /tmp/.X11-unix:/tmp/.X11-unix:rw
-    environment:
-      - DISPLAY=${DISPLAY}
-      #- XAUTHORITY=${XAUTHORITY}
-    devices:
-      - /dev/video0:/dev/video0
-    stdin_open: true
-    tty: true
+      - /home/pietro/jellyfin/config:/config
+      - /home/pietro/jellyfin/cache:/cache
+      - type: bind
+        source: /home/pietro/Media
+        target: /media
+      #- type: bind
+      #  source: /home/pietro/Music
+      #  target: /media
+      #  read_only: true
+      # Optional - extra fonts to be used during transcoding with subtitle burn-in
+      #- type: bind
+      #  source: /path/to/fonts
+      #  target: /usr/local/share/fonts/custom
+      #  read_only: true
+
+    restart: 'unless-stopped'
+    # Optional - alternative address used for autodiscovery
+    #environment:
+    #  - JELLYFIN_PublishedServerUrl=http://example.com
+
+    # Optional - may be necessary for docker healthcheck to pass if running in host network mode
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+
