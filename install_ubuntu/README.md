@@ -99,6 +99,7 @@ disable snap for firefox
 
 install firefox
 
+    sudo apt remove firefox
     sudo apt install firefox
 
 now it should work remotely
