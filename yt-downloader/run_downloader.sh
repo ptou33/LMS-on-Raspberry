@@ -22,7 +22,7 @@ if ! python -c "import yt_dlp" &>/dev/null; then
 fi
 
 # Run the downloader script
-python "$SCRIPT_DIR/youtube_full_quality_downloader.py"
+python "$SCRIPT_DIR/youtube_full_quality_downloader.py" "$@"
 
 # Deactivate venv
 deactivate
